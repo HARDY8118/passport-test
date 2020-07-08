@@ -1,0 +1,196 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+div.container {
+    height: auto;
+}
+
+.container>.inner-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+}
+
+.container>.inner-container>div {
+    flex: 1;
+    margin: auto;
+}
+
+.container>div {
+    /* padding: 1em; */
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+    transition-duration: 1s;
+    cursor: pointer;
+    background: none;
+}
+
+.container>div>a {
+    text-decoration: none;
+}
+
+.container>div:hover {
+    color: darkblue;
+    background-color: rgb(198, 255, 164);
+}
+
+#login-box {
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    right: 100vw;
+    background-color: rgb(205, 235, 96);
+    transition-duration: 1s;
+}
+
+.container>.inner-container>div>input {
+    width: calc(100% - 4em);
+    margin: 2em;
+    font-size: 0;
+    display: none;
+    transition-duration: 1s;
+    border: none;
+    text-align: justify;
+    padding: 0.5em;
+}
+
+.container>.inner-container>div>input[type=button] {
+    cursor: pointer;
+    text-align: center;
+}
+
+.container>.inner-container>div:hover>input {
+    font-size: 1.2em;
+}
+
+#logup-box {
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    left: 100vw;
+    background-color: rgb(205, 235, 96);
+    transition-duration: 1s;
+}
+
+#google {
+    height: 25vh;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid white 1em;
+}
+
+#google:hover {
+    background-color: white;
+    border-top: solid #db3236 1em;
+    border-right: solid #4885ed 1em;
+    border-bottom: solid #3cba54 1em;
+    border-left: solid #f4c20d 1em;
+}
+
+#google>a {
+    color: gray;
+}
+
+#facebook {
+    height: 25vh;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#facebook:hover {
+    background-color: #3b5998;
+}
+
+#facebook>a {
+    color: #3b5998;
+}
+
+#facebook:hover>a {
+    color: white;
+}
+
+#twitter {
+    height: 25vh;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#twitter:hover {
+    background-color: #00acee;
+}
+
+#twitter>a {
+    color: #00acee;
+}
+
+#twitter:hover>a {
+    color: white;
+}
+
+#github {
+    height: 25vh;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #211F1F;
+    border: solid 1em white;
+}
+
+#github:hover {
+    border-color: #211F1F;
+    background-color: #F4CBB2;
+}
+
+#github>a {
+    color: #FFFFFF;
+}
+
+#github:hover>a {
+    color: #AD5C51;
+}
+
+#profile {
+    position: fixed;
+    top: 0;
+    left: calc(100vw - 2em);
+    margin: 0;
+    width: calc(100vw + 2em);
+    height: 100vh;
+    z-index: 2;
+    background-color: rgb(118, 255, 255);
+    display: flex;
+    flex-direction: column;
+    transition-duration: 1s;
+}
+
+#profile>img {
+    height: 2em;
+    width: 2em;
+}
+
+#profile:hover {
+    left: 50vw;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="/public/home.css">
+    <script src="/public/home.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner-container">
+            <div id="login-box">
+                <input type="text" name="username" id="username" placeholder="username">
+                <input type="password" name="password" id="password" placeholder="password">
+                <input type="button" value="LOGIN">
+            </div>
+            <div id="login">LOGIN</div>
+            <div id="logup">SIGNUP</div>
+            <div id="logup-box">
+                <input type="text" name="name" id="name" placeholder="name">
+                <input type="text" name="username" id="username" placeholder="username">
+                <input type="password" name="password" id="password" placeholder="password">
+                <input type="button" value="LOGUP">
+            </div>
+        </div>
+        <div id="google">
+            <a target="_black" rel="noopener noreferrer">
+                    GOOGLE
+                </a>
+        </div>
+        <div id="facebook">
+            <a target="_black" rel="noopener noreferrer">
+                FACEBOOK
+            </a>
+        </div>
+        <div id="twitter">
+            <a target="_black" rel="noopener noreferrer">
+                TWITTER
+            </a>
+        </div>
+        <div id="github">
+            <a target="_black" rel="noopener noreferrer">
+                GITHUB
+            </a>
+        </div>
+    </div>
+    <% if(!!user){ %>
+        <div id="profile">
+            <div><%= user.name %></div>
+            <div><%= user.username %></div>
+            <div><%= user.email %></div>
+            <div><img src="<%= user.photo %>"></div>
+            <div><%= user.provider %></div>
+            <div><%= user[user.provider.toLowerCase()+'Id'] %></div>
+        </div>
+    <% } %> 
+</body>
+
+</html>
