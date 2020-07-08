@@ -18,3 +18,5 @@
     <li>Twitter</li>
     <li>Github</li>
 </ul>
+
+In order to use, you must have credentials of respective providers in .env file
