@@ -12,6 +12,7 @@ const logupBox = document.querySelector('#logup-box')
 document.querySelector('#login').addEventListener('click', () => {
     document.querySelector('#logup-box #name').style.display = "none"
     document.querySelector('#logup-box #username').style.display = "none"
+    document.querySelector('#logup-box #email').style.display = "none"
     document.querySelector('#logup-box #password').style.display = "none"
     document.querySelector('#logup-box > input[type=button]').style.display = "none"
 
@@ -34,6 +35,7 @@ document.querySelector('#logup').addEventListener('click', () => {
     document.querySelector('#logup-box #name').style.display = "block"
     document.querySelector('#logup-box #username').style.display = "block"
     document.querySelector('#logup-box #password').style.display = "block"
+    document.querySelector('#logup-box #email').style.display = "block"
     document.querySelector('#logup-box > input[type=button]').style.display = "block"
 })
 
@@ -49,7 +51,21 @@ document.querySelector('#login-box>input[type=button]').addEventListener('click'
         })
     })
         .then(res => res.json())
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res)
+            const d = document.createElement('div')
+            d.id = 'profile'
+
+            d.innerHTML =
+                `
+                    <div id="profile">
+                    <div>NAME: ${res.name}</div>
+                    <div>USERNAME: ${res.username}</div>
+                    <div>EMAIL: ${res.email}</div>
+                    </div>
+                `
+            document.body.appendChild(d)
+        })
         .catch(err => console.log(err))
 })
 
@@ -71,7 +87,7 @@ document.querySelector('#logup-box>input[type=button]').addEventListener('click'
 })
 
 window.addEventListener('load', () => {
-    const nextUrl = 'http://localhost:5000'
+    const nextUrl = window.location.href || 'http://127.0.0.1:5000'
     document.querySelector('#google>a').setAttribute("href", "/auth/google?next=" + nextUrl)
 
     document.querySelector('#facebook>a').setAttribute("href", "/auth/facebook?next=" + nextUrl)

@@ -65,7 +65,7 @@ passport.use(new LocalStrategy({
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'http://localhost:5000/redirect',
+    callbackURL: 'http://127.0.0.1:5000/auth/google/redirect',
     passReqToCallback: true
 }, async (request, accessToken, refreshToken, profile, done) => {
     // console.log('request', request, '\n\n')
@@ -102,7 +102,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FaceookStrategy({
     clientID: process.env.FACEBOOK_CLIENT_ID,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL: 'http://localhost:5000/facebookredirect',
+    callbackURL: 'http://localhost:5000/auth/facebook/redirect',
     profileFields: ['id', 'displayName', 'photos', 'email', 'gender']
 }, async (accessToken, refreshToken, profile, done) => {
     // console.log('accessToken', accessToken, '\n\n')
@@ -138,7 +138,7 @@ passport.use(new FaceookStrategy({
 passport.use(new TwitterStrategy({
     consumerKey: process.env.TWITTER_CLIENT_ID,
     consumerSecret: process.env.TWITTER_CLIENT_SECRET,
-    callbackURL: 'http://127.0.0.1:5000/twitterredirect',
+    callbackURL: 'http://127.0.0.1:5000/auth/twitter/redirect',
     includeEmail: true,
     includeEntities: true,
     includeStatus: true
@@ -176,7 +176,7 @@ passport.use(new TwitterStrategy({
 passport.use(new GithubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: 'http://localhost:5000/githubredirect'
+    callbackURL: 'http://127.0.0.1:5000/auth/github/redirect'
 }, async (accessToken, refreshToken, profile, done) => {
     // console.log('accessToken', accessToken, '\n\n')
     // console.log('refreshToken', refreshToken, '\n\n')
@@ -291,7 +291,7 @@ app.get('/auth/google', (req, res, next) => { console.log('setting req', req.que
     ]
 }))
 
-app.get('/redirect', (req, res, next) => {
+app.get('/auth/google/redirect', (req, res, next) => {
     passport.authenticate('google', (err, user, info) => {
         // console.log('err\n', err, '\n\n')
         // console.log('user\n', user, '\n\n')
@@ -320,7 +320,7 @@ app.get('/redirect', (req, res, next) => {
 
 app.get('/auth/facebook', (req, res, next) => { console.log('setting req', req.query); redirectUrl = req.query.next; next() }, passport.authenticate('facebook', { scope: ['email'] }))
 
-app.get('/facebookredirect', (req, res, next) => {
+app.get('/auth/facebook/redirect', (req, res, next) => {
     passport.authenticate('facebook', (err, user, info) => {
         // console.log('err\n', err, '\n\n')
         // console.log('user\n', user, '\n\n')
@@ -349,7 +349,7 @@ app.get('/facebookredirect', (req, res, next) => {
 
 app.get('/auth/twitter', (req, res, next) => { console.log('setting req', req.query); redirectUrl = req.query.next; next() }, passport.authenticate('twitter', { scope: ['email'] }))
 
-app.get('/twitterredirect', (req, res, next) => {
+app.get('/auth/twitter/redirect', (req, res, next) => {
     passport.authenticate('twitter', (err, user, info) => {
         // console.log('err\n', err, '\n\n')
         // console.log('user\n', user, '\n\n')
@@ -378,7 +378,7 @@ app.get('/twitterredirect', (req, res, next) => {
 
 app.get('/auth/github', (req, res, next) => { console.log('setting req', req.query); redirectUrl = req.query.next; next() }, passport.authenticate('github', { scope: ['user:email'] }))
 
-app.get('/githubredirect', (req, res, next) => {
+app.get('/auth/github/redirect', (req, res, next) => {
     passport.authenticate('github', (err, user, info) => {
         // console.log('err\n', err, '\n\n')
         // console.log('user\n', user, '\n\n')

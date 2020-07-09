@@ -1,22 +1,49 @@
-<p>Minimalist project to show passportjs authentication</p>
+Minimalist project to show passportjs authentication
+====================================================
 
-<h2>Libraries used</h2>
-<ul>
-    <li>express</li>
-    <li>passport</li>
-    <li>mongoose</li>
-    <li>body-parser</li>
-    <li>cookie-parser</li>
-    <li>express-session</li>
-</ul>
+## Libraries used
++ express
+> For developing rest api
++ passport
+> Manage logins/signup
++ mongoose
+> Mongodb driver
++ body-parser
+> Process data passed in post requests
++ cookie-parser
+> Process cookies
++ express-session
+> Process session storage
++ dotenv
+> Load .env file as environment variables
 
-<h2>Passport strategies covered</h2>
-<ul>
-    <li>Local</li>
-    <li>Google</li>
-    <li>Facebook</li>
-    <li>Twitter</li>
-    <li>Github</li>
-</ul>
+## Installation
+Navigate to project folder and run `npm install` to install required dependencies.
 
-In order to use, you must have credentials of respective providers in .env file
+## Test
+Start server using `node index.js`. Then navigate to [http://localhost:5000](http://localhost:5000 "Address to localhost")
+
+## Passport strategies covered 
+* Local
+* Google
+* Facebook
+* Twitter
+* Github
+
+## .env
+The .env file is required for app to run properly   
+
+The .env file containes 
+* Mongodb connection URI
+* App IDs and Secrets for each oAuth provider
+
+> In order to use, you must have credentials of respective providers in **.env** file name prefixed provider name in uppercase. For example   
+> ***GOOGLE_CLIENT_ID*** and ***GOOGLE_CLIENT_SECRET***   
+> For simplification credential variables in the **.env** are termed *PROVIDER*_CLIENT_ID and *PROVIDER*_CLIENT_SECRET irrespective of what the provider has termed them in the documentation.   
+> 
+> *** You can always change the variables as your wish ***
+
+> ## Note
+> + Twitter strategy seems to be broken for [http://localhost:5000](http://localhost:5000) but works fine with [http://127.0.0.1:5000](http://127.0.0.1:5000)
+> + Facebook strategy seems to be broken for [http://127.0.0.1:5000](http://127.0.0.1:5000) but works fine with [http://localhost:5000](http://localhost:5000)
+> + Use both keeping these in mind

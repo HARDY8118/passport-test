@@ -22,39 +22,40 @@
             <div id="logup-box">
                 <input type="text" name="name" id="name" placeholder="name">
                 <input type="text" name="username" id="username" placeholder="username">
+                <input type="text" name="email" id="email" placeholder="email">
                 <input type="password" name="password" id="password" placeholder="password">
                 <input type="button" value="LOGUP">
             </div>
         </div>
         <div id="google">
-            <a target="_black" rel="noopener noreferrer">
+            <a target="_blank" rel="noopener noreferrer">
                     GOOGLE
                 </a>
         </div>
         <div id="facebook">
-            <a target="_black" rel="noopener noreferrer">
+            <a target="_blank" rel="noopener noreferrer">
                 FACEBOOK
             </a>
         </div>
         <div id="twitter">
-            <a target="_black" rel="noopener noreferrer">
+            <a target="_blank" rel="noopener noreferrer">
                 TWITTER
             </a>
         </div>
         <div id="github">
-            <a target="_black" rel="noopener noreferrer">
+            <a target="_blank" rel="noopener noreferrer">
                 GITHUB
             </a>
         </div>
     </div>
     <% if(!!user){ %>
         <div id="profile">
-            <div><%= user.name %></div>
-            <div><%= user.username %></div>
-            <div><%= user.email %></div>
+            <div>NAME: <%= user.name %></div>
+            <div>USERNAME: <%= user.username %></div>
+            <div>EMAIL: <%= user.email %></div>
             <div><img src="<%= user.photo %>"></div>
-            <div><%= user.provider %></div>
-            <div><%= user[user.provider.toLowerCase()+'Id'] %></div>
+            <div>PROVIDER: <%= user.provider %></div>
+            <div>PROVIDER ID: <%= user[user.provider.toLowerCase()+'Id'] %></div>
         </div>
     <% } %> 
 </body>
